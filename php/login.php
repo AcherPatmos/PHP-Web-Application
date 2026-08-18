@@ -12,7 +12,7 @@
      <div class="login-container">
     <h1>Welcome Back</h1>
 
-    <form id="loginForm" action="php/login_process.php" method="POST">
+    <form id="loginForm" action="login_process.php" method="POST">
 
         <input
             type="email"
@@ -36,7 +36,6 @@
     </form>
 </div>
 
-<script src="js/validation.js"></script>
-
+<script src="../js/validation.js"></script>
 </body>
 </html>
