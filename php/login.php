@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 
-    <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
      <div class="login-container">
     <h1>Welcome Back</h1>
 
-    <form action="php/login_process.php" method="POST">
+    <form id="loginForm" action="php/login_process.php" method="POST">
 
         <input
             type="email"
@@ -20,6 +20,8 @@
             name="email"
             placeholder="Email Address"
             required>
+        <small id="emailError"></small>
+    
 
         <input
             type="password"
@@ -27,6 +29,7 @@
             name="password"
             placeholder="Password"
             required>
+        <small id="passwordError"></small>
 
         <button type="submit">Login</button>
 

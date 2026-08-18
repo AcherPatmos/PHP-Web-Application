@@ -77,3 +77,11 @@ body {
 .login-container button:hover {
     background-color: #ffff66;
 }
+
+small {
+    color: #ff6b6b;
+    display: block;
+    margin-bottom: 15px;
+    text-align: left;
+    font-size: 14px;
+}
