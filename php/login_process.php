@@ -1,45 +1,26 @@
 <?php
 
-$email = $_POST['email'];
-$password = $_POST['password'];
+// Check if the form was submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-// Hash the password
-$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    // Get the submitted values
+    $email = trim($_POST["email"]);
+    $password = trim($_POST["password"]);
 
-// Verify the password
-$isCorrect = password_verify($password, $hashedPassword);
+    /*
+        TODO:
+        - Connect to the database
+        - Find the user by email
+        - Verify the hashed password
+        - Start a session
+        - Redirect to the dashboard
+    */
 
-?>
+    echo "Login request received successfully.";
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login Result</title>
-</head>
-<body>
+} else {
 
-<h2>Login Test</h2>
+    header("Location: login.php");
+    exit();
 
-<p><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
-
-<p><strong>Password Hash:</strong></p>
-
-<p><?php echo $hashedPassword; ?></p>
-
-<?php if ($isCorrect): ?>
-
-    <h3 style="color:green;">
-        Password verified successfully!
-    </h3>
-
-<?php else: ?>
-
-    <h3 style="color:red;">
-        Password verification failed.
-    </h3>
-
-<?php endif; ?>
-
-</body>
-</html>
+}
