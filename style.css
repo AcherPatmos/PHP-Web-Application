@@ -1,0 +1,105 @@
+/* ============================================================
+   Palette:
+     Cartoon Yellow      #F4F420  (accents, highlights)
+     Animated Royal Blue #1A639B  (cards, buttons, links)
+     Midnight Navy       #052542  (backgrounds, depth)
+   ============================================================ */
+
+:root {
+    --yellow:      #F4F420;
+    --body:        #14171F;
+    --blue:        #1A639B;
+    --navy:        #052542;
+    --navy-dark:   #031A2F;
+    --text-light:  #EAF3FB;
+    --text-muted:  #9FBBD4;
+    --danger:      #E5484D;
+
+    
+    --font-display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+    --font-body:    'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --font-mono:    'Special Elite', 'Courier New', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    background: var(--body);
+    color: var(--text-light);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+
+}
+
+.navbar {
+    background: transparent;
+    padding: 20px 20px 20px 20px;
+    border-bottom: 5px solid var(--blue);
+}
+
+.navbar-brand {
+    color: var(--yellow);
+    font-style: italic;
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+
+.navbar-brand:hover {
+    color: var(--yellow);
+    font-style: italic;
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+
+.nav-link.active {
+    color: var(--yellow) !important;
+}
+
+.nav-link,
+.nav-link a {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-secondary);
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link a:hover,
+.nav-link a:active {
+    color: var(--text-primary);
+    border-bottom-color: var(--accent);
+}
+
+.navbar-toggler-icon {
+  filter: invert(100%);
+}
+
+.navbar-toggler {
+  border-color: var(--border-subtle);
+  border-radius: 8px; 
+  background-color: transparent;
+  color: transparent;
+}
+
+
+.btn-outline-success {
+    --bs-btn-bg: var(--yellow);
+    --bs-btn-hover-bg: var(--navy-dark);
+    --bs-btn-active-bg: var(var(--navy-dark))
+    --bs-btn-padding-x: 20px;
+    --bs-btn-padding-y: 10px;
+    font-size: 12px;
+    font-family: var(--font-body);
+    color: var(--body);
+    white-space: nowrap;
+    align-self: center ;
+}
