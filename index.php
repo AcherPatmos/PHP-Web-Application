@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 session_start();
 require_once __DIR__ . '/PHP/db.php';
 
@@ -20,28 +17,29 @@ $total = $result ? $result->num_rows : 0;
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cerebro — Mutant Roster Manager</title>
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="site-header">
-  <div class="brand">
-    <div class="brand-mark">C</div>
-    <div>
-      <div class="brand-name">Cerebro</div>
-      <div class="brand-tag">Mutant Roster Manager</div>
-    </div>
+  <div class="header-inner">
+    <a href="index.php" class="brand">
+      <div class="brand-mark">C</div>
+      <div class="brand-text">
+        <span class="brand-name">Cerebro</span>
+      </div>
+    </a>
+    <nav class="main-nav">
+      <a href="index.php" class="is-active">Roster</a>
+      <?php if ($logged_in): ?>
+        <a href="PHP/add_hero.php">Add Hero</a>
+        <span class="nav-user">Signed in as <strong><?php echo htmlspecialchars($_SESSION['username'] ?? 'staff'); ?></strong></span>
+        <a href="PHP/logout.php" class="btn-nav">Log Out</a>
+      <?php else: ?>
+        <a href="PHP/login.php" class="btn-nav">Staff Login</a>
+      <?php endif; ?>
+    </nav>
   </div>
-  <nav>
-    <a href="index.php" class="active">Roster</a>
-    <?php if ($logged_in): ?>
-      <a href="add_hero.php">Add Hero</a>
-      <span class="nav-user">Signed in as <strong><?php echo htmlspecialchars($_SESSION['username'] ?? 'staff'); ?></strong></span>
-      <a href="logout.php" class="btn-login">Log Out</a>
-    <?php else: ?>
-      <a href="login.php" class="btn-login">Staff Login</a>
-    <?php endif; ?>
-  </nav>
 </header>
 
 <main>
