@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script src="https://kit.fontawesome.com/608b2ac16e.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/style.css">
+  <title>Document</title>
+
+</head>
+<body>
+
+  <header class="site-header">
+      <div class="wrap header-inner">
+          <a href="index.php" class="brand">
+              <span class="brand-text">
+                  <span class="brand-name">X-Men Hero Registry</span>
+              </span>
+          </a>
+          <nav class="main-nav" aria-label="Primary">
+              <a href="index.php" class="<?= $currentPage === 'index.php' ? 'is-active' : '' ?>">Heros</a>
+              <?php if (isLoggedIn()): ?>
+                  <a href="add_hero.php" class="<?= $currentPage === 'add_hero.php' ? 'is-active' : '' ?>">New Hero</a>
+                  <span class="nav-user">Signed in as <strong><?= e($_SESSION['username']) ?></strong></span>
+                  <a href="logout.php" class="btn-nav">Log Out</a>
+              <?php else: ?>
+                  <a href="login.php" class="btn-nav <?= $currentPage === 'login.php' ? 'is-active' : '' ?>">Log In</a>
+              <?php endif; ?>
+          </nav>
+      </div>
+  </header>
+
+  <main>
+    <div class="page-heading">
+      <h1>Heroes on File</h1>
+      <p class="subtitle">Browse every recorded operative. <?= isLoggedIn() ? 'You are signed in and may create, edit, or remove records.' : 'Sign in to create, edit, or remove records.' ?></p>
+    </div>
+
+    <form class="search-bar" method="get" action="index.php" role="search">
+    <label for="q">Search heroes</label>
+    <input type="text" id="q" name="q" placeholder="Search by hero or real name;" value="<?= e($search) ?>">
+    <button type="submit" class="btn-primary">Search</button>
+        <a href="index.php" class="btn-ghost">Clear</a>
+  </form>
+
+  <div class="hero-grid">
+
+    <article class="hero-card">
+        <a href="#" class="hero-card-link">
+            <div class="hero-card-media">
+                <img src="hero1.jpg" alt="Hero Name" loading="lazy">
+            </div>
+
+            <div class="hero-card-body">
+                <h2>Hero Name</h2>
+                <p class="real-name">Real Name</p>
+                <p class="bio-snippet">
+                    A short description about this hero goes here.
+                </p>
+            </div>
+        </a>
+
+        <div class="hero-card-footer">
+            <div class="hero-card-tags">
+                <span class="tag">Team Name</span>
+                <span class="stamp stamp-active">Active</span>
+            </div>
+        </div>
+    </article>
+
+    <article class="hero-card">
+        <a href="#" class="hero-card-link">
+            <div class="hero-card-media">
+                <img src="hero2.jpg" alt="Hero Name">
+            </div>
+
+            <div class="hero-card-body">
+                <h2>Hero Name</h2>
+                <p class="real-name">Real Name</p>
+                <p class="bio-snippet">
+                    A short description about this hero goes here.
+                </p>
+            </div>
+        </a>
+
+        <div class="hero-card-footer">
+            <div class="hero-card-tags">
+                <span class="tag">Team Name</span>
+                <span class="stamp stamp-retired">Retired</span>
+            </div>
+        </div>
+    </article>
+
+    <article class="hero-card">
+        <a href="#" class="hero-card-link">
+            <div class="hero-card-media">
+                <img src="hero3.jpg" alt="Hero Name">
+            </div>
+
+            <div class="hero-card-body">
+                <h2>Hero Name</h2>
+                <p class="real-name">Real Name</p>
+                <p class="bio-snippet">
+                    A short description about this hero goes here.
+                </p>
+            </div>
+        </a>
+
+        <div class="hero-card-footer">
+            <div class="hero-card-tags">
+                <div class="hero-card-tags">
+                    <span class="tag">Team Name</span>
+                    <span class="stamp stamp-active">Active</span>
+                </div>
+            </div>
+        </div>
+    </article>
+
+</div>
+
+  </main>
+
+</body>
+</html>
