@@ -268,6 +268,35 @@ p {
 
 /* ADDITIONS for staff pages (manage/add/edit hero)*/
 
+/* Footer — not defined in original style.css */
+footer, .site-footer {
+    background: var(--navy-dark);
+    color: var(--text-muted);
+    border-top: 3px solid var(--yellow);
+    padding: 16px 20px;
+    font-size: 0.82rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 40px;
+}
+
+/* Brand mark (circular "C" avatar in header) — not in original style.css */
+.brand-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: var(--yellow);
+    font-family: var(--font-display);
+    flex: none;
+}
+
 /* Status stamps (Active / Inactive / Deceased / Unknown) */
 .stamp {
     font-size: 0.66rem;
@@ -420,7 +449,5 @@ p {
 }
 .danger-zone h4 { margin: 0 0 4px; font-size: 0.95rem; color: var(--text-light); text-transform: none; }
 .danger-zone p { margin: 0; font-size: 0.84rem; color: var(--text-muted); }
-
-
 
 

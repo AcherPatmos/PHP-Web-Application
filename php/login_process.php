@@ -1,26 +1,33 @@
 <?php
+session_start();
+require_once __DIR__ . '/db.php';
 
-// Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // Get the submitted values
-    $email = trim($_POST["email"]);
+    $username = trim($_POST["email"]);
     $password = trim($_POST["password"]);
 
-    /*
-        TODO:
-        - Connect to the database
-        - Find the user by email
-        - Verify the hashed password
-        - Start a session
-        - Redirect to the dashboard
-    */
+    if ($username === '' || $password === '') {
+        header("Location: login.php?error=empty");
+        exit();
+    }
 
-    echo "Login request received successfully.";
+    $stmt = $conn->prepare("SELECT user_id, username, password FROM users WHERE username = ?");
+    $stmt->bind_param('s', $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+    $stmt->close();
 
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['user_id'] = $user['user_id'];
+        $_SESSION['username'] = $user['username'];
+        header("Location: manage_heroes.php");
+        exit();
+    } else {
+        header("Location: login.php?error=invalid");
+        exit();
+    }
 } else {
-
     header("Location: login.php");
     exit();
-
 }
