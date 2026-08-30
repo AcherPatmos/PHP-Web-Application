@@ -2,7 +2,7 @@
 // hero.php: the full case file for one hero, reached from the roster cards.
 // Public: anyone can read it. Staff also get an "Edit this file" button.
 
-require_once __DIR__ . '/PHP/db.php';
+require_once __DIR__ . '/db.php';
 
 $currentPage = 'hero.php';
 
