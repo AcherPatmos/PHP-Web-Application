@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     input.classList.remove("has-error");
   }
 
-  // As soon as someone starts fixing a field, drop its error.
+  // As soon as someone starts fixing a field, the error is dropped
   username.addEventListener("input", function () {
     clearError(username, usernameError);
   });
@@ -47,9 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
       valid = false;
     }
 
-    // Deliberately not checking length or character rules here.
-    // Telling a visitor "passwords are at least 8 characters" on the
-    // login screen hands that rule to anyone guessing.
     if (password.value === "") {
       showError(password, passwordError, "Enter your password.");
       valid = false;
