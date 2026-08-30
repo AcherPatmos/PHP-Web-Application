@@ -66,13 +66,13 @@ $total = $result ? $result->num_rows : 0;
 
       <?php if (is_logged_in()): ?>
         <!-- Signed in: show the staff tools -->
-        <a href="PHP/manage_heroes.php">Manage Heroes</a>
-        <a href="PHP/manage_staff.php">Staff</a>
+        <a href="manage_heroes.php">Manage Heroes</a>
+        <a href="manage_staff.php">Staff</a>
         <span class="nav-user">Signed in as <strong><?php echo e(current_staff_name()); ?></strong></span>
-        <a href="PHP/logout.php" class="btn-nav">Log Out</a>
+        <a href="logout.php" class="btn-nav">Log Out</a>
       <?php else: ?>
         <!-- Signed out: only offer the way in -->
-        <a href="PHP/login.php" class="btn-nav">Staff Login</a>
+        <a href="login.php" class="btn-nav">Staff Login</a>
       <?php endif; ?>
     </nav>
   </div>
