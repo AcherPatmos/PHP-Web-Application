@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/PHP/db.php';
+require_once __DIR__ . '/db.php';
 
 if (!is_logged_in()) {
     header('Location: login.php');
@@ -16,7 +16,7 @@ if ($id <= 0) {
 
 $errors = [];
 
-// just to load the hero data for the form ... will fetch it from the database
+// just to load the hero data for the form 
 $stmt = $conn->prepare("SELECT * FROM heroes WHERE hero_id = ?");
 $stmt->bind_param('i', $id);
 $stmt->execute();
@@ -79,21 +79,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edit <?php echo htmlspecialchars($values['hero_name']); ?> — Cerebro</title>
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
 <header class="site-header">
-  <div class="brand">
-    <div class="brand-mark">C</div>
-    <div><div class="brand-name">Cerebro</div><div class="brand-tag">Mutant Roster Manager</div></div>
+  <div class="header-inner">
+    <a href="../index.php" class="brand">
+      <div class="brand-mark">C</div>
+      <div class="brand-text">
+        <span class="brand-name">Cerebro</span>
+      </div>
+    </a>
+    <nav class="main-nav">
+      <a href="../index.php">Roster</a>
+      <a href="manage_heroes.php">Manage Heroes</a>
+      <span class="nav-user">Signed in as <strong><?php echo htmlspecialchars($_SESSION['username'] ?? 'staff'); ?></strong></span>
+      <a href="logout.php" class="btn-nav">Log Out</a>
+    </nav>
   </div>
-  <nav>
-    <a href="index.php">Roster</a>
-    <a href="manage_heroes.php" class="active">Manage Heroes</a>
-    <span class="nav-user">Signed in as <strong><?php echo htmlspecialchars($_SESSION['username'] ?? 'staff'); ?></strong></span>
-    <a href="logout.php" class="btn-login">Log Out</a>
-  </nav>
 </header>
 
 <main>
