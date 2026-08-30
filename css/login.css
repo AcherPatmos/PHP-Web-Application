@@ -1,0 +1,303 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===================================================
+   BODY
+=================================================== */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #202020;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+/* ===================================================
+   MAIN CONTAINER
+=================================================== */
+
+.container {
+  width: 90%;
+  max-width: 1400px;
+
+  min-height: 720px;
+
+  display: flex;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* ===================================================
+   LEFT LOGIN PANEL
+=================================================== */
+
+.login-panel {
+  width: 40%;
+  background: #052542;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 55px;
+}
+
+/* ===================================================
+   LOGO
+=================================================== */
+
+.logo {
+  color: #f4f420;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.logo:hover {
+  color: #ffff66;
+}
+
+/* ===================================================
+   HEADER
+=================================================== */
+
+.login-header {
+  margin-bottom: 28px;
+}
+
+.login-header h4 {
+  color: #f4f420;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.login-header h1 {
+  font-size: 46px;
+  margin-bottom: 12px;
+}
+
+.login-header p {
+  color: #d2d2d2;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.alert {
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 22px;
+}
+
+.alert ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.alert a {
+  color: inherit;
+  font-weight: bold;
+}
+
+.alert-error {
+  background: rgba(194, 59, 59, 0.15);
+  border: 1px solid #c23b3b;
+  color: #ff9b9b;
+}
+
+.alert-notice {
+  background: rgba(244, 244, 32, 0.12);
+  border: 1px solid #f4f420;
+  color: #f4f420;
+}
+
+/* ===================================================
+   FORM
+=================================================== */
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  border: 2px solid #1a639b;
+  background: #0d3558;
+  color: white;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+input::placeholder {
+  color: #bbbbbb;
+}
+
+input:focus {
+  outline: none;
+  border-color: #f4f420;
+  box-shadow: 0 0 12px rgba(244, 244, 32, 0.35);
+}
+
+/* Red border on a field validation.js has flagged */
+input.has-error {
+  border-color: #c23b3b;
+}
+
+small {
+  display: block;
+  min-height: 20px;
+  margin-bottom: 14px;
+  color: #ff8080;
+  font-size: 14px;
+}
+
+/* ===================================================
+   BUTTON
+=================================================== */
+
+.login-btn {
+  width: 100%;
+  padding: 16px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 12px;
+  background: #f4f420;
+  color: #052542;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: #ffff66;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(244, 244, 32, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-btn,
+  .login-btn:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* ===================================================
+   LINK BACK TO THE PUBLIC SITE
+=================================================== */
+
+.back-to-site {
+  margin-top: 22px;
+  font-size: 14px;
+}
+
+.back-to-site a {
+  color: #9fbbd4;
+  text-decoration: none;
+}
+
+.back-to-site a:hover {
+  color: #f4f420;
+}
+
+/* ===================================================
+   FOOTER
+=================================================== */
+
+footer {
+  margin-top: 30px;
+  font-size: 13px;
+  color: #bdbdbd;
+  line-height: 1.7;
+}
+
+footer p:first-child {
+  font-weight: bold;
+  color: white;
+  margin-bottom: 6px;
+}
+
+/* ===================================================
+   RIGHT IMAGE PANEL
+=================================================== */
+
+.image-panel {
+  width: 60%;
+  background: #202020;
+  overflow: hidden;
+}
+
+.image-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===================================================
+   RESPONSIVE
+=================================================== */
+
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .login-panel {
+    width: 100%;
+    padding: 40px;
+
+    /* On a phone the picture should come second, under the form */
+    order: 1;
+  }
+
+  .image-panel {
+    width: 100%;
+    height: 300px;
+    order: 2;
+  }
+
+  .logo {
+    margin-bottom: 30px;
+  }
+
+  .login-header h1 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    padding: 15px;
+  }
+
+  .login-panel {
+    padding: 30px;
+  }
+
+  .login-header h1 {
+    font-size: 30px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+}
