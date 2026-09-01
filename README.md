@@ -7,9 +7,6 @@ accounts.
 ## Requirements
 
 - **XAMPP** (or any Apache + MySQL + PHP stack)
-- **PHP 7.4 or newer** the code uses typed function signatures, the null
-  coalescing operator, and `mysqli::get_result()`. XAMPP ships with a new
-  enough version by default.
 - **Git**, if you are cloning rather than copying the folder.
 
 ## Cloning and running it
@@ -31,13 +28,14 @@ Then, in order:
   
 3. **Create the database.** In phpMyAdmin, use the **Import** tab to run
    `Database file/heroes.sql`, then `Database file/insert_heroes.sql`.
-   The first file drops and recreates `hero_db`, so any existing data is lost.
-
+  
 4. **Open the site** at
    `http://localhost/PHP%20WEB%20APPLICATION/PHP/index.php`
    
 5. **Login by** by visiting
    `http://localhost/PHP%20WEB%20APPLICATION/PHP/login.php`.
+   or click on the staff login. You will get prompted to create an account
+   if it is the first time
 
 ## File structure
 
